@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 const db = config.get('mongoURI');
 const Animal = require('./models/Animals')
-const port = 5000;
+const port = 3001;
 
 const animals = [
   'Lion',
