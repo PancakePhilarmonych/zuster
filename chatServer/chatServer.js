@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 const startServer = (port) => {
   app.get('/chat', (req, res) => {
@@ -40,7 +39,7 @@ const startServer = (port) => {
     });
   });
 
-  server.listen(port, () => {
+  http.listen(port, () => {
     console.log(`listening on *:${port}`);
   });
 }
