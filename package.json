@@ -4,13 +4,17 @@
   "description": "fight-club game from 2000's",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
   "author": "Alexandr Panfilov <rikko.alexandr@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "config": "^3.3.6",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mongoose": "^5.12.5"
+    "mongoose": "^5.12.5",
+    "socket.io": "^4.0.1",
+    "ws": "^7.4.5"
   }
 }
