@@ -6,7 +6,6 @@ const io = require('socket.io')(http);
 
 
 const startServer = (port) => {
-  app.use(express.static(__dirname + '/node_modules'));
 
   app.get('/chat', (req, res) => {
     res.sendFile(__dirname + '/index.html');

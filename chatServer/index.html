@@ -24,8 +24,6 @@
     <script>
       var socket = io().connect("http://zuster.ru/chat")
 
-      console.log('123')
-
       var messages = document.getElementById('messages');
       var form = document.getElementById('form');
       var input = document.getElementById('input');
@@ -35,9 +33,8 @@
 
         if (input.value) {
           console.log('Work')
-          console.log(socket.emit)
 
-          socket.emit('cm', input.value);
+          socket.emit('chat message', input.value);
           input.value = '';
         }
       });
