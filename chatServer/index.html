@@ -52,7 +52,10 @@
 
         methods: {
           sendMessage() {
-            if(this.messageText === '') return;
+            if(this.messageText === '') {
+              console.log('Work');
+              return;
+            }
 
             socket.emit('chat message', this.messageText);
             this.messageText = ''
