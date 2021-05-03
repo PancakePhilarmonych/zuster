@@ -1,18 +1,9 @@
 $general: #dac448;
 $bg: #131020;
 $secondBg: #2a203f;
-$title: #30f1f8;
-
-$cyber-grape: rgb(63, 49, 100);
+$neon: #30f1f8;
 $african-violet: rgb(193, 129, 204);
-$lemon-meringue: #ECE6BFff;
-$rifle-green: #4E5043ff;
-$brown-sugar: #B37859ff;
-$lemon-meringue-2: #ECE6BFff;
-$english-violet: #46325Cff;
-$rifle-green-2: #4E5043ff;
-$brown-sugar-2: #B37859ff;
-$rifle-green-3: #4E5043ff;
+
 
 * {
   box-sizing: border-box;
@@ -25,7 +16,6 @@ $rifle-green-3: #4E5043ff;
 html {
   width: 100%;
   height: 100%;
-  font-size: 14px;
 }
 
 body {
@@ -46,11 +36,12 @@ body {
   align-items: center;
 
   .messages {
+    width: 512px;
+
     border-radius: 8px;
     padding: 10px;
     overflow-y:scroll;
     height: 100%;
-    width: 512px;
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
@@ -58,59 +49,80 @@ body {
     border: solid $african-violet;
 
     & > * {
-      padding: 8px 16px;
+      padding: 10px 16px;
       font-size: 24px;
       letter-spacing: 0.02em;
-      filter: blur(0.007em);
       user-select: none;
+      color: #fff;
+      text-shadow: 0 0 0.15em $neon;
     }
 
     :not(:last-child) {
       margin-bottom: 8px;
     }
-
-    .message {
-      color: #fff;
-      text-shadow: 0 0 0.15em #1da9cc;
-    }
-
-    .alert {
-      color: rgb(250, 250, 250);
-    }
   }
 
   .options {
+    width: 512px;
     display: flex;
     flex-direction: column;
 
-    input {
+    & > * {
       border-radius: 6px;
-      width: 512px;
+      width: 100%;
       height: 56px;
+      color: white;
+      outline: none;
       border: solid $african-violet;
+    }
+
+    input {
       background-color: $bg;
       padding-left: 10px;
       font-size: 22px;
-      color: white;
-      outline: none;
       margin-bottom: 12px;
+      width: 100%;
     }
 
     button {
-      border-radius: 6px;
       cursor: pointer;
       font-size: 18px;
       text-transform: uppercase;
-      border: solid $african-violet;
       background-color: $bg;
       transition: 0.3s;
-      outline: none;
-      color: #fff;
       text-shadow: 0 0 0.15em #1ab7df;
+    }
+  }
+}
 
-      filter: blur(0.007em);
-      height: 56px;
-      width: 300px;
+@media (min-width: 400px) and (max-width: 1080px) {
+  #app {
+    .messages {
+      width: 100%;
+
+      & > * {
+        padding: 20px 28px;
+        font-size: 56px;
+        letter-spacing: 0.02em;
+        user-select: none;
+      }
+    }
+
+    .options {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        padding-left: 30px;
+        font-size: 56px;
+        height: 120px;
+      }
+
+      button {
+        font-size: 56px;
+        height: 120px;
+      }
     }
   }
 }
