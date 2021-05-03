@@ -1,0 +1,124 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  height: 100%;
+  background-color: #131020;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#app .messages {
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: scroll;
+  height: 100%;
+  width: 512px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 12px;
+  background-color: #131020;
+  border: solid #c181cc;
+}
+
+#app .messages :not(:last-child) {
+  margin-bottom: 8px;
+}
+
+#app .messages .message {
+  padding: 8px 16px;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.15em #1da9cc;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-filter: blur(0.007em);
+          filter: blur(0.007em);
+  border-radius: 6px;
+  word-wrap: wrap;
+}
+
+#app .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#app .options input {
+  border-radius: 6px;
+  width: 512px;
+  height: 56px;
+  border: solid #c181cc;
+  background-color: #131020;
+  padding-left: 10px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: white;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+#app .options button {
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: solid #c181cc;
+  background-color: #131020;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+  color: #fff;
+  text-shadow: 0 0 0.15em #1ab7df;
+  -webkit-filter: blur(0.007em);
+          filter: blur(0.007em);
+  height: 56px;
+  width: 300px;
+}
+/*# sourceMappingURL=style.css.map */

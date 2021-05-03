@@ -1,47 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/style.css"></link>
     <title>Socket.IO chat</title>
-    <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-      #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
-
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #50d8f0; }
-    </style>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <div id="app">
+      <div class="messages">
+        <template v-if="messages.length">
+          <div class="message"
+            v-for="(message, i) in messages"
+            :key="i">
+            {{ message }}
+          </div>
+        </template>
+
+        <div v-else class="alert">
+          Нет сообщений
+        </div>
+      </div>
+
+      <div class="options">
+        <input placeholder="..." @keyup.enter="sendMessage" type="text" v-model="messageText">
+        <button @click="sendMessage">Send message</button>
+      </div>
+    </div>
+
     <script>
-      var socket = io()
+      const socket = io()
 
-      var messages = document.getElementById('messages');
-      var form = document.getElementById('form');
-      var input = document.getElementById('input');
+      const app = new Vue({
+        el: '#app',
 
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
+        data() {
+          return {
+            title: 'Привет',
+            messageText: '',
+            messages: ['lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ips'],
+          }
+        },
 
-        if (input.value) {
-          socket.emit('chat message', input.value);
-          input.value = '';
+        created() {
+          socket.on('chat message', (msg) => {
+            this.addMessage(msg)
+          });
+
+          window.scrollTo(0, document.body.scrollHeight);
+        },
+
+
+        methods: {
+          sendMessage() {
+            if(this.messageText === '') return;
+
+            socket.emit('chat message', this.messageText);
+            this.messageText = ''
+          },
+
+          addMessage(msg) {
+            this.messages.push(msg)
+          }
         }
-      });
-
-      socket.on('chat message', function(msg) {
-        var item = document.createElement('li');
-        item.textContent = msg;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
       });
     </script>
   </body>

@@ -1,0 +1,116 @@
+$general: #dac448;
+$bg: #131020;
+$secondBg: #2a203f;
+$title: #30f1f8;
+
+$cyber-grape: rgb(63, 49, 100);
+$african-violet: rgb(193, 129, 204);
+$lemon-meringue: #ECE6BFff;
+$rifle-green: #4E5043ff;
+$brown-sugar: #B37859ff;
+$lemon-meringue-2: #ECE6BFff;
+$english-violet: #46325Cff;
+$rifle-green-2: #4E5043ff;
+$brown-sugar-2: #B37859ff;
+$rifle-green-3: #4E5043ff;
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  height: 100%;
+  background-color: $bg;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
+
+  align-items: center;
+
+  .messages {
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y:scroll;
+    height: 100%;
+    width: 512px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    background-color: $bg;
+    border: solid $african-violet;
+
+
+    :not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    .message {
+      padding: 8px 16px;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      text-shadow: 0 0 0.15em #1da9cc;
+      user-select: none;
+      filter: blur(0.007em);
+
+      border-radius: 6px;
+      word-wrap: wrap;
+    }
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      border-radius: 6px;
+      width: 512px;
+      height: 56px;
+      border: solid $african-violet;
+      background-color: $bg;
+      padding-left: 10px;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: white;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    button {
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 18px;
+      text-transform: uppercase;
+      border: solid $african-violet;
+      background-color: $bg;
+      transition: 0.3s;
+      outline: none;
+      color: #fff;
+      text-shadow: 0 0 0.15em #1ab7df;
+
+      filter: blur(0.007em);
+      height: 56px;
+      width: 300px;
+    }
+  }
+}
+
