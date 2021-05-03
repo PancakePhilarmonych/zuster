@@ -17,5 +17,5 @@ mongoose
   .then(() => console.log('MongoDB connected...'))
   .catch((error) => console.log(error))
 
-  chatServer(3002)
+  chatServer(3000)
   animalApiServer(3001)
