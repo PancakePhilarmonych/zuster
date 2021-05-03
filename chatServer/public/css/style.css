@@ -59,25 +59,29 @@ body {
   border: solid #c181cc;
 }
 
+#app .messages > * {
+  padding: 8px 16px;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  -webkit-filter: blur(0.007em);
+          filter: blur(0.007em);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 #app .messages :not(:last-child) {
   margin-bottom: 8px;
 }
 
 #app .messages .message {
-  padding: 8px 16px;
-  font-size: 18px;
   color: #fff;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
   text-shadow: 0 0 0.15em #1da9cc;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-filter: blur(0.007em);
-          filter: blur(0.007em);
-  border-radius: 6px;
-  word-wrap: wrap;
+}
+
+#app .messages .alert {
+  color: #fafafa;
 }
 
 #app .options {
@@ -98,7 +102,6 @@ body {
   background-color: #131020;
   padding-left: 10px;
   font-size: 22px;
-  text-transform: uppercase;
   color: white;
   outline: none;
   margin-bottom: 12px;

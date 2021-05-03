@@ -57,23 +57,25 @@ body {
     background-color: $bg;
     border: solid $african-violet;
 
+    & > * {
+      padding: 8px 16px;
+      font-size: 24px;
+      letter-spacing: 0.02em;
+      filter: blur(0.007em);
+      user-select: none;
+    }
 
     :not(:last-child) {
       margin-bottom: 8px;
     }
 
     .message {
-      padding: 8px 16px;
-      font-size: 18px;
       color: #fff;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
       text-shadow: 0 0 0.15em #1da9cc;
-      user-select: none;
-      filter: blur(0.007em);
+    }
 
-      border-radius: 6px;
-      word-wrap: wrap;
+    .alert {
+      color: rgb(250, 250, 250);
     }
   }
 
@@ -89,7 +91,6 @@ body {
       background-color: $bg;
       padding-left: 10px;
       font-size: 22px;
-      text-transform: uppercase;
       color: white;
       outline: none;
       margin-bottom: 12px;
